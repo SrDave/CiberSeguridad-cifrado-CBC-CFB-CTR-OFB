@@ -6,8 +6,8 @@
     
     `x=b’a’*48`
 
-2. Cifrar dicho texto mediante el cifrador AES en modo OFB definido en la biblioteca cryptography de Python.
-3. Emplear el cifrador AES en modo ECB definido en cryptography como bloque básico para construir el esquema relativo al cifrado del modo de funcionamiento OFB.
+2. Cifrar dicho texto mediante el cifrador AES en modo OFB, CTR, CBC y CFB definido en la biblioteca cryptography de Python.
+3. Emplear el cifrador AES en modo ECB definido en cryptography como bloque básico para construir el esquema relativo al cifrado del modo de funcionamiento OFB, CTR, CBC y CFB.
 
 Como se puede observar, OFB consiste en cifrar, para el primer bloque de 16 bytes del texto claro, el vector de inicialización (IV) con AES en modo ECB y con la clave k. El resultado de dicho cifrado (que conviene que almacene en una variable, por ejemplo, s) debe sumarse en módulo 2 con el primer bloque de texto claro, lo que proporciona el primer bloque de texto cifrado. Para los siguientes bloques, el funcionamiento es diferente, en cuanto a que la entrada al cifrador AES en modo ECB debe ser el resultado del cifrado AES ECB del bloque anterior (que se ha almacenado en una variable s). Además, recuerde que para realizar la suma módulo 2 puede emplear la siguiente función:
 
